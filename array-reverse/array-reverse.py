@@ -6,7 +6,6 @@ def reverse_array(original_array):
     i = array_length(original_array)
     x = 1
     while i >= 0:
-        # new_array.append(original_array[i])
         new_array += [original_array[i]]
         i -= 1
     return new_array

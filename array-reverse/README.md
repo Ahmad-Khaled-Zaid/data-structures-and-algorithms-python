@@ -4,7 +4,7 @@ Write a function called reverseArray which takes an array as an argument. Withou
 available to your language, return an array with elements in reversed order.
 
 ## Whiteboard Process
-![white board reverse array](white_board.png)
+![white board reverse array](array-reverse.png)
 ## Approach & Efficiency
 
 according to requitemts, it's not allowed to use any built-in methods.
