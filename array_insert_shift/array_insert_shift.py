@@ -15,3 +15,5 @@ def array_length(array):
     for i in array:
         counter += 1
     return counter
+
+
