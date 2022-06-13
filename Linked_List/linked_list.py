@@ -1,3 +1,6 @@
+import math
+
+
 class Node:
     """
     | a class to represent a Node in the Linked List
@@ -45,39 +48,133 @@ class LinkedList:
         self.head = None
         self.current = None
         self.text = ""
+        self.last_node_pointer = None
+        self.length = 0
+
+    "##################################################"
+    "Method To Insert Node with O(1) Time Performance"
+    "##################################################"
 
     def insert_first(self, value):
-
+        self.length += 1
         node = Node(value)
+        if self.length == 1:
+            self.last_node_pointer = node
         node.next = self.head
         self.head = node
-        self.current = self.head
+
+    "######################################################"
+    "Method To Check if A Node Is Exist In the Linked List"
+    "######################################################"
 
     def includes(self, value):
-
         self.current = self.head
         while self.current is not None:
             if value == self.current.value:
                 return True
             self.current = self.current.next
+
         return False
 
+    "######################################################"
+    "Method To Insert Node at The Last Of the Linked List"
+    "######################################################"
+
+    def insert_last(self, value):
+        self.length += 1
+        node = Node(value)
+        if self.length == 1:
+            self.last_node_pointer = node
+            self.head = node
+        else:
+            self.last_node_pointer.next = node
+            self.last_node_pointer = node
+
+    "#################################################################"
+    "Method To Insert Node Before a Specific Node in the Linked List"
+    "#################################################################"
+
+    def insert_before(self, node_value, new_value):
+        if self.head is None:
+            print("You Can't Insert In Empty List")
+        elif node_value == self.head.value:
+            self.insert_first(new_value)
+            # self.head = Node(new_value)
+        else:
+            self.length += 1
+            node = Node(new_value)
+            self.current = self.head
+            while self.current is not None:
+                if self.current.next is not None and self.current.next.value == node_value:
+                    node.next = self.current.next
+                    self.current.next = node
+                    return
+
+                self.current = self.current.next
+            raise Exception
+
+    "#################################################################"
+    "Method To Insert Node After a Specific Node in the Linked List"
+    "#################################################################"
+
+    def insert_after(self, node_value, new_value):
+        if self.head is None:
+            print("You Can't Insert In Empty List")
+
+        else:
+            self.length += 1
+            self.current = self.head
+            while self.current is not None:
+                if self.current.value == node_value:
+                    node = Node(new_value)
+                    node.next = self.current.next
+                    self.current.next = node
+                    return
+                self.current = self.current.next
+            raise Exception
+
+    "#################################################################"
+    "Method To Add Node In The Middle Of The Linked List"
+    "#################################################################"
+
+    def insert_in_middle(self, value):
+        if self.head is None:
+            return "You Can't Insert In Empty List"
+        # elif self.length == 1:
+        #     self.insert_last(value)
+
+        else:
+            counter = 0
+            self.current = self.head
+            while self.current is not None:
+                counter += 1
+                if counter == math.ceil(self.length / 2):
+                    self.length += 1
+                    node = Node(value)
+                    node.next = self.current.next
+                    self.current.next = node
+                    return
+                self.current = self.current.next
+
+    "#################################################################"
+    "Method To Print All The Linked List Values In A string Form"
+    "#################################################################"
+
     def to_string(self):
+        self.text = ""
         self.current = self.head
         while self.current is not None:
-            self.text += " { " + str(self.current.value) + " } -> "
+            self.text += " { " + str(self.current.value) + " } ->"
             self.current = self.current.next
-        self.text += "Null"
-        return self.text
+        return self.text + " Null"
 
 
 if __name__ == "__main__":
     try:
         list_1 = LinkedList()
-        list_1.insert_first(5)
-        list_1.insert_first(10)
-        list_1.insert_first(52)
-        list_1.insert_first(2)
-        list_1.insert_first()
+        list_1.insert_first(12)
+        list_1.insert_in_middle("middle")
+        print(list_1.to_string())
+
     except Exception as error:
         print(f"Error: {error}")
