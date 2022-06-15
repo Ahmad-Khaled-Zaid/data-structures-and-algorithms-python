@@ -145,6 +145,29 @@ def test_insert_middle_case4(newer_list):
     assert newer_list.to_string() == " { 31 } -> { 70 } -> Null"
 
 
+def test_kth_case1(new_list_2):
+    assert new_list_2.kth_from_end(0) == 2
+
+
+def test_kth_case2(new_list_2):
+    assert new_list_2.kth_from_end(2) == 3
+
+
+def test_kth_case3(new_list_2):
+    with pytest.raises(Exception):
+        new_list_2.kth_from_end(6)
+
+
+def test_kth_case4(new_list_2):
+    with pytest.raises(Exception):
+        new_list_2.kth_from_end(-1)
+
+
+def test_kth_case5(new_list_2):
+    with pytest.raises(Exception):
+        new_list_2.kth_from_end(-1)
+
+
 @pytest.fixture
 def new_list():
     list_1 = LinkedList()
@@ -157,4 +180,14 @@ def new_list():
 @pytest.fixture
 def newer_list():
     list_1 = LinkedList()
+    return list_1
+
+
+@pytest.fixture
+def new_list_2():
+    list_1 = LinkedList()
+    list_1.insert_last(1)
+    list_1.insert_last(3)
+    list_1.insert_last(8)
+    list_1.insert_last(2)
     return list_1

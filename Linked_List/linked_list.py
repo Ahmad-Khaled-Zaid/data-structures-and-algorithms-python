@@ -156,6 +156,21 @@ class LinkedList:
                     return
                 self.current = self.current.next
 
+    "######################################################################################"
+    "Method To Return the node’s value that is k places from the tail of the linked list."
+    "######################################################################################"
+
+    def kth_from_end(self, place_value):
+
+        counter = 0
+        self.current = self.head
+        while self.current is not None:
+            if counter == self.length - (place_value + 1):
+                return self.current.value
+            self.current = self.current.next
+            counter += 1
+        raise Exception
+
     "#################################################################"
     "Method To Print All The Linked List Values In A string Form"
     "#################################################################"
@@ -172,8 +187,16 @@ class LinkedList:
 if __name__ == "__main__":
     try:
         list_1 = LinkedList()
-        list_1.insert_first(12)
-        list_1.insert_in_middle("middle")
+        list_1.insert_first(15)
+        list_1.insert_before(15, 13)
+        list_1.insert_last(1)
+        list_1.insert_last(15)
+        # list_1.insert_last(20)
+        # list_1.insert_after(1, 50)
+        print(list_1.kth_from_end(1))
+        # print(list_1.length)
+        # list_1.kth_from_end()
+        # list_1.insert_in_middle("middle")
         print(list_1.to_string())
 
     except Exception as error:
