@@ -9,6 +9,10 @@ Use OOP to create a Singly Linked List class, and this List have the following m
 2-`include`: check if a value is included in the list  
 3-`to_string`: return a string representation of the list
 
+## Whiteboard Process
+
+![kth_from_end](kth_from_end.png)
+
 ## Approach & Efficiency
 
 Create Two classed, one for the node and one for the list.  
