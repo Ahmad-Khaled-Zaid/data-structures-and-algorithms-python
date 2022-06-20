@@ -82,13 +82,16 @@ class LinkedList:
 
     def insert_last(self, value):
         self.length += 1
-        node = Node(value)
-        if self.length == 1:
-            self.last_node_pointer = node
-            self.head = node
-        else:
-            self.last_node_pointer.next = node
-            self.last_node_pointer = node
+
+        new_node = Node(value)
+
+        if self.head is None:
+            self.head = new_node
+            return
+        last = self.head
+        while last.next:
+            last = last.next
+        last.next = new_node
 
     "#################################################################"
     "Method To Insert Node Before a Specific Node in the Linked List"
