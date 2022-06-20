@@ -6,7 +6,7 @@ that the nodes alternate between the two lists and return a reference to  the zi
 
 ## Whiteboard Process
 
-![zip_list](zip_list.png)
+![zip_list](zip_list.png) 
 
 ## Approach & Efficiency  
 
