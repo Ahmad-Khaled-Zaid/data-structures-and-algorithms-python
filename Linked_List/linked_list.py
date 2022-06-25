@@ -188,19 +188,87 @@ class LinkedList:
 
 
 if __name__ == "__main__":
-    try:
-        list_1 = LinkedList()
-        list_1.insert_first(15)
-        list_1.insert_before(15, 13)
-        list_1.insert_last(1)
-        list_1.insert_last(15)
-        # list_1.insert_last(20)
-        # list_1.insert_after(1, 50)
-        print(list_1.kth_from_end(1))
-        # print(list_1.length)
-        # list_1.kth_from_end()
-        # list_1.insert_in_middle("middle")
-        print(list_1.to_string())
+    list_1 = LinkedList()
+    list_2 = LinkedList()
+    # list_1
 
-    except Exception as error:
-        print(f"Error: {error}")
+    list_1.insert_last(5)
+    # list_1.insert_last(108)
+    # list_1.insert_last(200)
+    # list_2
+
+    list_2.insert_last(1)
+    list_2.insert_last(2)
+    list_2.insert_last(4)
+    print(list_1.to_string())
+    print(list_2.to_string())
+
+
+def merge_linked_lists(list_1, list_2):
+    curr1 = list_1.head
+    curr2 = list_2.head
+    if not curr2:
+        return list_1
+    if not curr1:
+        return list_2
+    flag = False
+    while curr2:
+        if curr2 and curr1.next is None:
+            pass
+            # if curr1.value > curr2.value:
+            #     curr2.next = curr1
+            #     return list_2
+            # else:
+            #     curr1.next = curr2
+            #     return list_1
+        elif curr1.value <= curr2.value <= curr1.next.value:
+            temp = curr2.next
+            curr2.next = curr1.next
+            curr1.next = curr2
+            curr2 = temp
+            curr1 = curr1.next
+
+        elif curr2.value < curr1.value:
+            print("hello")
+            flag = True
+            temp = curr2.next
+            curr2.next = curr1
+            curr1 = curr2
+            curr2 = temp
+        else:
+            curr1 = curr1.next
+
+    if flag:
+        return list_2
+    else:
+        return list_1
+
+
+print(merge_linked_lists(list_1, list_2))
+print(list_2.to_string())
+#
+# def sort_linked_list(linked_list_1):
+#     link_list_2 = linked_list_1.head
+#     curr = link_list_2
+#     flag = False
+#     if not curr:
+#         raise Exception
+#
+#     if curr.next is None:
+#         return linked_list_1
+#
+#         # 1 2 3 5 7
+#     while curr.next:
+#         if curr.value > curr.next.value:
+#             flag = True
+#             curr.value, curr.next.value = curr.next.value, curr.value
+#
+#         curr = curr.next
+#
+#         if flag and curr.next is None:
+#             curr = linked_list_1.head
+#             flag = False
+#
+#
+# sort_linked_list(list_1)
+# print(list_1.to_string())
