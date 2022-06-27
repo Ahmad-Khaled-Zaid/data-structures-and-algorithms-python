@@ -78,9 +78,9 @@ class Queue:
 
 if __name__ == "__main__":
     queue = Queue()
-    # queue.enqueue(4)
-    # queue.enqueue(5)
-    # queue.enqueue(6)
+    queue.enqueue(4)
+    queue.enqueue(5)
+    queue.enqueue(6)
     queue.peek()
     print(queue.is_empty())
     # print(queue.peek())

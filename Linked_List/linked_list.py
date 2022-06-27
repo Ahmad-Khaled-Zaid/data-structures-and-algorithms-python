@@ -193,58 +193,67 @@ if __name__ == "__main__":
     # list_1
 
     list_1.insert_last(5)
-    # list_1.insert_last(108)
-    # list_1.insert_last(200)
+    list_1.insert_last(108)
+    list_1.insert_last(200)
     # list_2
 
     list_2.insert_last(1)
     list_2.insert_last(2)
     list_2.insert_last(4)
+    list_2.insert_last(-1)
+    list_2.insert_last(332)
     print(list_1.to_string())
     print(list_2.to_string())
 
 
-def merge_linked_lists(list_1, list_2):
-    curr1 = list_1.head
-    curr2 = list_2.head
-    if not curr2:
-        return list_1
-    if not curr1:
-        return list_2
-    flag = False
-    while curr2:
-        if curr2 and curr1.next is None:
-            pass
-            # if curr1.value > curr2.value:
-            #     curr2.next = curr1
-            #     return list_2
-            # else:
-            #     curr1.next = curr2
-            #     return list_1
-        elif curr1.value <= curr2.value <= curr1.next.value:
-            temp = curr2.next
-            curr2.next = curr1.next
-            curr1.next = curr2
-            curr2 = temp
-            curr1 = curr1.next
+# def merge_linked_lists(a, b):
+#     if not a or b andaa a.value > b.value:
+#         a, b = b, a
+#     if a:
+#         a.next = merge_linked_lists(a.next, b)
+#     return a
+#
 
-        elif curr2.value < curr1.value:
-            print("hello")
-            flag = True
-            temp = curr2.next
-            curr2.next = curr1
-            curr1 = curr2
-            curr2 = temp
-        else:
-            curr1 = curr1.next
+# curr1 = list_1.head
+# curr2 = list_2.head
+# if not curr2:
+#     return list_1
+# if not curr1:
+#     return list_2
+# flag = False
+# while curr2:
+#     if curr2 and curr1.next is None:
+#         pass
+#         # if curr1.value > curr2.value:
+#         #     curr2.next = curr1
+#         #     return list_2
+#         # else:
+#         #     curr1.next = curr2
+#         #     return list_1
+#     elif curr1.value <= curr2.value <= curr1.next.value:
+#         temp = curr2.next
+#         curr2.next = curr1.next
+#         curr1.next = curr2
+#         curr2 = temp
+#         curr1 = curr1.next
+#
+#     elif curr2.value < curr1.value:
+#         print("hello")
+#         flag = True
+#         temp = curr2.next
+#         curr2.next = curr1
+#         curr1 = curr2
+#         curr2 = temp
+#     else:
+#         curr1 = curr1.next
+#
+# if flag:
+#     return list_2
+# else:
+#     return list_1
 
-    if flag:
-        return list_2
-    else:
-        return list_1
 
-
-print(merge_linked_lists(list_1, list_2))
+merge_linked_lists(list_1.head, list_2.head)
 print(list_2.to_string())
 #
 # def sort_linked_list(linked_list_1):
