@@ -42,11 +42,6 @@ if __name__ == '__main__':
     queue.enqueue(2)
     queue.enqueue(3)
     print(queue)
-    queue.dequeue()
-    print(queue)
-    queue.enqueue(4)
-    queue.enqueue(5)
-    queue.dequeue()
-    print(queue)
+    # queue.d
 
 
