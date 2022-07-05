@@ -1,6 +1,7 @@
 from trees.trees import BinaryTree, TNode
 import pytest
 
+
 def test_max_case1():
     tree = BinaryTree()
     tree.root = TNode(5)
