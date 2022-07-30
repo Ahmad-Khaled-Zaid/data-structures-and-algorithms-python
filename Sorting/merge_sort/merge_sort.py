@@ -33,7 +33,6 @@ def merge_sort(array):
             k += 1
     return array
 
-
 if __name__ == '__main__':
     arr = [8, 4, 23, 42, 16, 15]
     merge_sort(arr)
