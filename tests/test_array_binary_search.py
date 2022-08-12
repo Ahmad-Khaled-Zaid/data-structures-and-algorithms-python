@@ -15,6 +15,7 @@ def test_second_list():
 
 
 def test_third_list():
+
     actual = binary_search([11, 22, 33, 44, 55, 66, 77], 90)
     expected = -1
     assert actual == expected
