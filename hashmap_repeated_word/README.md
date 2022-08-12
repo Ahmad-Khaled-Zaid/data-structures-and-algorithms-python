@@ -6,7 +6,7 @@ Return: string
 
 ## Whiteboard Process
 
-![white board](White board.png)
+![white board](White_board.png)
 ## Approach & Efficiency
 
 use HashMap
