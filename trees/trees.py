@@ -107,6 +107,6 @@ if __name__ == "__main__":
     search_tree.root.right = TNode(-5)
     search_tree.root.left = TNode(43)
     search_tree.root.left.right = TNode(-42)
-    # search_tree.root.left.left = TNode()
+
     search_tree.pre_order()
     print(search_tree.max_tree())
